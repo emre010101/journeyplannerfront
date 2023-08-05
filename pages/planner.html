@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Journey Planner</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/planner.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/navbar.css">
+    <script>
+window.initMap = function() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 53.550, lng: -7.305 }, <!-- Sydney: lat: -34.397, lng: 150.644  Ireland: 53.7798° N, 7.3055° W-->
+        zoom: 7,
+    });
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer();
+    geocoder = new google.maps.Geocoder();
+    directionsRenderer.setMap(map);
+}
+</script>
+
+</head>
+<body ondrop="drop(event)" ondragover="allowDrop(event)">
+
+<nav id="nav-bar">
+</nav>
+
+<div class="container">
+    <div id="map-and-stops-container">
+        <div id="stops-list" style="display:none;"></div>
+        <div id="map"></div>
+        <div id="calculate" style="display:none;"></div> <!-- After user choose the stop points -->
+    </div>
+    <div id="chat-input-area">
+        <textarea id="user-input" placeholder="Enter your journey details here..."></textarea>
+        <div id="buttons-area">
+            <button id="send-button" class="button">Send</button>
+            <button id="save-button" style="display:none;" class="button">Save Route</button>
+            <button id="calculate-button" style="display:none;" class="button">Calculate Route</button>
+            <a id="displayOn-google" style="display:none;" class="button" target="_blank">Display on Google Map</a>
+        </div>
+    </div>
+    <div id="journey-bar" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</div>
+
+<!-- Log In Modal -->
+<div id="logInModal" class="modal">
+</div>
+
+<!-- Sign In Modal -->
+<div id="signInModal" class="modal">
+</div>
+
+<!-- The Modal -->
+<div id="saveDialog" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="saveForm">
+            <label for="title">Journey Title:</label><br>
+            <input type="text" id="title" name="title"><br>
+            <button id="saveAndShare" type="button">Save and Share</button>
+        </form>
+    </div>
+</div>
+
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByDPWpC-sYKrLNvWjPd43qvdXWcTZKkDE&callback=initMap">
+</script>
+<script src="../Script/planner.js"></script>
+<script src="../Script/navbar.js"></script>
+
+</body>
+</html>
