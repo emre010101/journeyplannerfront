@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 50px);  /*this value according to the height nav-bar */
+    color: black !important; /* Overriding text color */
+    background: rgba(255, 255, 255, 0.8);
+}
+
+
+#map-and-stops-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+#stops-list {
+    flex: 1;
+    overflow-y: auto; /* Scroll Vertically */
+    width: 140px;
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+#map {
+    flex: 2;
+    overflow-y: auto; /* Scroll Vertically */
+}
+
+#calculate {
+    flex: 1;
+    overflow-y: auto; /* Scroll Vertically */
+    padding: 10px;
+    border-left: 1px solid #ccc;
+    margin-left: 10px;
+    resize: horizontal;
+    min-width: 20%; /* Minimum width */
+}
+
+#chat-input-area {
+    flex: none;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+}
+
+#journey-bar {
+    flex: none;
+    display: flex;
+    flex-wrap: nowrap;  /* Change to nowrap to allow horizontal scroll */
+    gap: 10px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    overflow-x: auto;  /* Add horizontal scroll when content overflows */
+}
+
+#user-input {
+    flex-grow: 1;
+    min-height: 30px;
+    resize: none;
+}
+
+#buttons-area {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.button {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    text-decoration: none;
+}
+
+.journey-point {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    background-color: #eee;
+    cursor: move;
+}
+
+#calculate h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+#calculate p {
+    margin: 0 0 10px 0;
+    color: #666;
+}
+
+#calculate div {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}

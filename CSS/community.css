@@ -1,0 +1,203 @@
+
+body {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #fff;
+    background: url('../Images/road2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+#content-area {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 10px;
+}
+
+.journey-container {
+    background-color: rgba(172, 191, 212, 0.8);
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    height: auto;
+}
+.general-info{
+    display: flex;
+    justify-content: space-between;
+}
+.general-info, .journey-details, .journey-leg-container, .journey-image-container, .journey-actions-container, .comment-section {
+    margin-bottom: 20px;
+}
+
+.general-info h2, .journey-details p, .journey-actions-container div, .comment-section .comment p {
+    margin-bottom: 10px;
+}
+
+.journey-leg-container .journey-leg {
+    margin-bottom: 15px;
+}
+
+.journey-image-container img {
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.journey-actions-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Items will wrap onto new lines */
+}
+
+
+.comment-section {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.all-comments {
+    margin-top: 20px;
+}
+
+.comment {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.like-button {
+    font-size: 30px; /* You can change this value as per your requirement */
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.journeyButtons {
+    background-color: #4CAF50; /* This is a nice green color, you can change it as per your requirement */
+    border: none; /* No border */
+    color: white; /* Text color is white */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* No underline or overline */
+    display: inline-block;
+    font-size: 16px; /* Adjust to suit your design */
+    transition-duration: 0.4s; /* Makes a nice, smooth transition */
+    cursor: pointer; /* Changes the cursor when you hover over the button */
+    padding: 10px 24px; /* The first value is the top/bottom padding, and the second is the left/right padding */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.journeyButtons:hover {
+    background-color: #45a049; /* This is a different shade of green, you can change it as per your requirement */
+    color: white; /* The text color stays the same when you hover */
+}
+
+
+
+
+/*/////////////////////////////////////////////////////*/
+#filter-bar {
+    /*display: flex;*/
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#filter-bar input[type="text"] {
+    width: 100px;
+}
+
+.filterField {
+    height: 30px;
+}
+
+.nav-btn {
+    padding: 10px;
+    margin: 5px;
+    background-color: rgba(76, 175, 80, 1); /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.page-numbers{
+    color: black;
+}
+
+.nav-btn:hover {
+    background-color: #45a049;
+}
+
+#page-buttons {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+   /* background-color: #fff;
+    opacity: 0.9;*/
+    background-color: rgba(255, 255, 255, 0.6);
+    margin-top: auto;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////*/
+#comment-modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#comment-modal form {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+#comment-modal textarea {
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#comment-modal button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+}
+
+#comment-modal button:hover {
+    background-color: #45a049;
+}
+
+
