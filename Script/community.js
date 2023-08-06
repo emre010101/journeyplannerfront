@@ -145,7 +145,26 @@ function createJourneyContainer(journey) {
     // Return the journey container
     return journeyContainer;
 }
-
+/*
+function createNameDateTitle(journey){
+    // Create the general information section
+    let generalInfo = document.createElement('div');
+    generalInfo.className = 'general-info';
+    // Add the journey title
+    let title = document.createElement('h2');
+    title.innerText = journey.journeyTitle;
+    generalInfo.appendChild(title);
+    // Add the creation date
+    let dateCreated = document.createElement('p');
+    dateCreated.setAttribute('class', 'date');
+    dateCreated.innerText = journey.dateCreated;
+    generalInfo.appendChild(dateCreated);
+    // Add the user info
+    let user = document.createElement('p');
+    user.innerText = journey.userDTO.firstName + ' ' + journey.userDTO.lastName;
+    generalInfo.appendChild(user);
+    return generalInfo;
+}*/
 function createNameDateTitle(journey){
     // Create the general information section
     let generalInfo = document.createElement('div');

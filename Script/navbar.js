@@ -5,46 +5,21 @@ var loggedInUser = null; //'emre.kavak3938@gmail.com'
 //Adding window event listener to load external html components and other functionalities
 window.addEventListener("load", function() {
     console.log("Testing");
-    // Determine the relative path to the components based on the current location
-    var relativePathToComponents = window.location.pathname.includes('pages') ? './' : './pages/';
+    var elements = assignButtonAndModals();
+    assignEventListeners(elements);
 
-    Promise.all([
-        loadComponent('nav-bar', relativePathToComponents + 'navbar.html'),
-        loadComponent('logInModal', relativePathToComponents + 'loginModal.html'),
-        loadComponent('signInModal', relativePathToComponents + 'signinModal.html')
-    ])
-    .then(() => {
+    var token = localStorage.getItem('accessToken');
+    loggedInUser = localStorage.getItem('loggedInUser');
 
-        var elements = assignButtonAndModals();
-        assignEventListeners(elements);
-
-        var token = localStorage.getItem('accessToken');
-        loggedInUser = localStorage.getItem('loggedInUser');
-
-        if(token && loggedInUser){
-            console.log("User is found in the local storage!!");
-            // Set the page state depending on the logged in user
-            setPageState(loggedInUser, elements);
-        }else{
-            console.log("User is not found in the local storage!");
-        }
-
-
-    })
-    .catch((error) => {
-        console.error("Error: ", error);
-    });
+    if(token && loggedInUser){
+        console.log("User is found in the local storage!!");
+        // Set the page state depending on the logged in user
+        setPageState(loggedInUser, elements);
+    }else{
+        console.log("User is not found in the local storage!");
+    }
 });
 
-/*
-
-
-        Promise.all([ //Waiting to load the other components
-            loadComponent('nav-bar', './pages/navbar.html'),
-            loadComponent('logInModal', './pages/loginModal.html'),
-            loadComponent('signInModal', './pages/signinModal.html')
-        ])
-*/
 
 //Loading the other html elements dynamically
 function loadComponent(elementId, componentPath) {
