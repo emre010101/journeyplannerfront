@@ -174,7 +174,7 @@ function loginUser(loginEmail, password, elements) {
     };
 
     // Send POST request to /login
-    return fetch('http://localhost:8082/api/jp/auth/authenticate', {
+    return fetch('https://journey-planner.azurewebsites.net/api/jp/auth/authenticate', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -251,7 +251,7 @@ function signinUser(signinEmail, password, signinFirstName, signinLastName, elem
     };
 
     // Send POST request to /login
-    return fetch('http://localhost:8082/api/jp/auth/register', {
+    return fetch('https://journey-planner.azurewebsites.net/api/jp/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -332,7 +332,7 @@ function setPageState(loggedInUser, elements) {
 
 function logOutUser(elements){
 
-    fetch('http://localhost:8082/api/jp/auth/logout', {
+    fetch('https://journey-planner.azurewebsites.net/api/jp/auth/logout', {
       method: 'POST',
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
@@ -363,7 +363,7 @@ function logOutUser(elements){
 //Get the api usage
 // Get the api usage
 function getTodayApiUsage() {
-  const url = 'http://localhost:8082/api/jp/usage/today';
+  const url = 'https://journey-planner.azurewebsites.net/api/jp/usage/today';
   const token = localStorage.getItem('accessToken');
 
   return fetch(url, {
