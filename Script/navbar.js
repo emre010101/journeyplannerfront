@@ -1,6 +1,7 @@
 // This is a placeholder for the logged-in user.
 //If the server confirm user authentication, the user will be saved here
-var loggedInUser = null; //'emre.kavak3938@gmail.com'
+var loggedInUser; // = "emre.kavak3938@gmail.com"; //'emre.kavak3938@gmail.com'
+//var token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbXJla2F2YWszOTM4QGdtYWlsLmNvbSIsImlhdCI6MTY5MTMxNzc3NCwiZXhwIjoxNjkxNDA0MTc0fQ.9wW0bhnQNfzsmP9DHJTzZvd8WIgpmHLG4Qg0rG1-GP4"
 
 //Adding window event listener to load external html components and other functionalities
 window.addEventListener("load", function() {
@@ -10,6 +11,7 @@ window.addEventListener("load", function() {
 
     var token = localStorage.getItem('accessToken');
     loggedInUser = localStorage.getItem('loggedInUser');
+    
 
     if(token && loggedInUser){
         console.log("User is found in the local storage!!");
@@ -20,25 +22,6 @@ window.addEventListener("load", function() {
     }
 });
 
-
-//Loading the other html elements dynamically
-function loadComponent(elementId, componentPath) {
-    return new Promise((resolve, reject) => {
-        const xhttp = new XMLHttpRequest();
-
-        xhttp.onload = function() {
-            const container = document.getElementById(elementId);
-            container.innerHTML = this.responseText;
-            // Using setTimeout to wait until the new HTML is inserted into the DOM
-            setTimeout(() => resolve(), 0);
-        }
-
-        xhttp.onerror = reject;
-
-        xhttp.open("GET", componentPath, true);
-        xhttp.send();
-    });
-}
 
 
 function assignButtonAndModals() {
