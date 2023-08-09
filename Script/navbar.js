@@ -17,6 +17,7 @@ window.addEventListener("load", function() {
         // Set the page state depending on the logged in user
         setPageState(loggedInUser, elements);
     }else{
+        setPageState(loggedInUser, elements);
         console.log("User is not found in the local storage!");
     }
 });
@@ -124,6 +125,7 @@ function handleLoginFormSubmission(elements) {
 
 
 function loginUser(loginEmail, password, elements) {
+    console.log("Log in request is sent");
     // Create request payload
     var payload = {
         email: loginEmail,
@@ -156,8 +158,7 @@ function loginUser(loginEmail, password, elements) {
 
         //Store JWT token in localStorege
         localStorage.setItem('accessToken', data.access_token);
-        localStorage.setItem('loggedInUser', loggedInUser);
-                
+        localStorage.setItem('loggedInUser', loggedInUser);        
         setPageState(loggedInUser, elements);
 
         // if the current page is communityRoom.html, reload it
@@ -201,6 +202,7 @@ function handleSignInFormSubmission(elements){
 
 
 function signinUser(signinEmail, password, signinFirstName, signinLastName, elements) {
+    console.log("Signing in the user");
     // Create request payload
     var payload = {
         email: signinEmail,
@@ -290,6 +292,7 @@ function setPageState(loggedInUser, elements) {
 
 
 function logOutUser(elements){
+    console.log("Loggin out");
 
     fetch('https://journey-planner.azurewebsites.net/api/jp/auth/logout', {
       method: 'POST',
@@ -322,6 +325,7 @@ function logOutUser(elements){
 //Get the api usage
 // Get the api usage
 function getTodayApiUsage() {
+    console.log("Fething Api usage");
   const url = 'https://journey-planner.azurewebsites.net/api/jp/usage/today';
   const token = localStorage.getItem('accessToken');
 
