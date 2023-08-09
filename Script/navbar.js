@@ -1,7 +1,6 @@
 // This is a placeholder for the logged-in user.
 //If the server confirm user authentication, the user will be saved here
-var loggedInUser; // = "emre.kavak3938@gmail.com"; //'emre.kavak3938@gmail.com'
-//var token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbXJla2F2YWszOTM4QGdtYWlsLmNvbSIsImlhdCI6MTY5MTMxNzc3NCwiZXhwIjoxNjkxNDA0MTc0fQ.9wW0bhnQNfzsmP9DHJTzZvd8WIgpmHLG4Qg0rG1-GP4"
+var loggedInUser; // = "emre.kavak3938@gmail.com"; 
 
 //Adding window event listener to load external html components and other functionalities
 window.addEventListener("load", function() {
@@ -25,7 +24,7 @@ window.addEventListener("load", function() {
 
 
 function assignButtonAndModals() {
-    //Declare your variables here
+    //Declare  variables
     var logInModal, signInModal, logInButton, signInButton, closeButtons, userRole, gptUsage, mapUsage;
 
     //Get the modals
@@ -154,11 +153,13 @@ function loginUser(loginEmail, password, elements) {
         // set the loggedInUser variable and update the UI.
         loggedInUser = loginEmail;
         elements.logInModal.style.display = "none";
-        setPageState(loggedInUser, elements);
 
         //Store JWT token in localStorege
         localStorage.setItem('accessToken', data.access_token);
         localStorage.setItem('loggedInUser', loggedInUser);
+                
+        setPageState(loggedInUser, elements);
+
         // if the current page is communityRoom.html, reload it
         if (window.location.pathname.endsWith('communityRoom.html')) {
             location.reload();
